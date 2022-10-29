@@ -1,10 +1,26 @@
 .container {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   height: 100vh;
-  padding: 0 2rem;
+}
+
+.innerContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20vh;
+}
+
+.loginSignup {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.button {
+  border: none;
+  height: 40px;
+  border-radius: 10px;
 }
 
 

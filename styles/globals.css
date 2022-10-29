@@ -11,6 +11,30 @@ a {
   text-decoration: none;
 }
 
+.blue-gradient {
+  background-image: linear-gradient(#060556, #435fdc);
+}
+
+.second-blue {
+  background: #2255f0;
+}
+
+.white-shadow {
+  box-shadow: 0px 3px 4px #fff;
+}
+
+.main-blue-shadow {
+  box-shadow: 0px 3px 4px #060556;
+}
+
+.white {
+  color: white;
+}
+
+.main-blue {
+  color: #060556;
+}
+
 * {
   box-sizing: border-box;
 }
