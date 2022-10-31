@@ -17,13 +17,6 @@
   gap: 40px;
 }
 
-.button {
-  border: none;
-  height: 40px;
-  border-radius: 10px;
-}
-
-
 @media (max-width: 600px) {
   .grid {
     width: 100%;

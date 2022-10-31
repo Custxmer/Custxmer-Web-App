@@ -28,11 +28,11 @@ export default function Home() {
           </div>
           <div className={styles.loginSignup}>
             <button
-              className={`second-blue ${styles.button} white white-shadow`}
+              className={`second-blue button white white-shadow`}
             >
               <Link href="/signup">SIGN UP</Link>
             </button>
-            <button className={`main-blue ${styles.button} main-blue-shadow`}>
+            <button className={`main-blue button main-blue-shadow`}>
               LOG IN
             </button>
           </div>
