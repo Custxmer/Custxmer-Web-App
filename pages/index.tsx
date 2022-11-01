@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
@@ -27,13 +28,11 @@ export default function Home() {
           </div>
           <div className={styles.loginSignup}>
             <button
-              className={`second-blue ${styles.button} white white-shadow`}
+              className={`second-blue button white white-shadow`}
             >
-              SIGN UP
+              <Link href="/signup">SIGN UP</Link>
             </button>
-            <button
-              className={`main-blue ${styles.button} main-blue-shadow`}
-            >
+            <button className={`main-blue button main-blue-shadow`}>
               LOG IN
             </button>
           </div>
