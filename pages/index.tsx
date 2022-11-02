@@ -5,7 +5,7 @@ import styles from "../styles/Home.module.css";
 
 export default function Home() {
   return (
-    <div className={`${styles.container} blue-gradient`}>
+    <div className={`container blue-gradient`}>
       <Head>
         <title>Custxmer App</title>
         <meta
@@ -27,11 +27,11 @@ export default function Home() {
             />
           </div>
           <div className={styles.loginSignup}>
-            <button
-              className={`second-blue button white white-shadow`}
-            >
-              <Link href="/signup">SIGN UP</Link>
-            </button>
+            <Link href="/signup">
+              <button className={`second-blue button white white-shadow ${styles.signup}`}>
+                SIGN UP
+              </button>
+            </Link>
             <button className={`main-blue button main-blue-shadow`}>
               LOG IN
             </button>

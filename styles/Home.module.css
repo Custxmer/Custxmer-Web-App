@@ -1,10 +1,3 @@
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
 .innerContainer {
   display: flex;
   flex-direction: column;
@@ -15,6 +8,11 @@
   display: flex;
   flex-direction: column;
   gap: 40px;
+}
+
+.signup {
+  width: 100%;
+  cursor: pointer;
 }
 
 @media (max-width: 600px) {
