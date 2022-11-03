@@ -33,6 +33,7 @@ const signupMain = () => {
           By continuing you agree to <br />{" "}
           <span className={styles.policy}>
             <Link href="https://www.custxmer.com/terms">
+              {/* eslint-disable-next-line react/no-unescaped-entities */}
               Custxmer's Terms & Conditions
             </Link>
           </span>
