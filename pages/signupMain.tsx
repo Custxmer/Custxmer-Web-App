@@ -1,21 +1,28 @@
 import React from "react";
+import Head from "next/head";
 import Link from "next/link";
 import styles from "../styles/SignupMain.module.css";
 
 const signupMain = () => {
   return (
     <main className="container  blue-gradient white">
+      <Head>
+        <link
+          rel="stylesheet"
+          href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"
+        ></link>
+      </Head>
       <div className={styles.innerDiv}>
         <h1 className={`heading white`}>Sign Up</h1>
         <button className={`button main-blue ${styles.with}`}>
-          Sign up with Goggle
+          <i className="fab fa-google fa-3x"></i> Sign up with Goggle
         </button>
         <button className={`button main-blue ${styles.with}`}>
-          Sign up with Apple
+          <i className="fab fa-apple fa-2x"></i> <span>Sign up with Apple</span>
         </button>
         <h2>OR</h2>
         <label htmlFor="password">
-          <span>password *</span>
+          <span className={styles.password}>password *</span>
           <br />
           <input className="button" type="password" />
         </label>

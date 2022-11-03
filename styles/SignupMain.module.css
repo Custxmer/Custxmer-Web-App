@@ -18,6 +18,10 @@
   width: 30vw;
 }
 
+.password{
+  margin-bottom: -15px;
+}
+
 .passStrength {
   text-align: left;
 }

@@ -13,6 +13,7 @@ export default function Home() {
           content="A web application that helps you contact your service providers with ease."
         />
         <link rel="icon" href="/favicon.ico" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"></link>
       </Head>
 
       <main className={styles.main}>

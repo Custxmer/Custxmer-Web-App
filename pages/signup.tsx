@@ -1,13 +1,16 @@
 import React from "react";
 import Image from "next/image";
+
 import Link from "next/link";
 import styles from "../styles/Signup.module.css";
 
 const Signup = () => {
   return (
     <main className={`container blue-gradient white`}>
+      
       <div>
         <h1 className={`heading white`}>Sign Up</h1>
+        
         <Image
           width={400}
           height={100}
@@ -36,9 +39,7 @@ const Signup = () => {
             </p>
           </div>
         </div>
-        <button className={`button already`}>
-          ALREADY HAVE AN ACCOUNT?
-        </button>
+        <button className={`button already`}>ALREADY HAVE AN ACCOUNT?</button>
       </div>
     </main>
   );
