@@ -1,0 +1,31 @@
+.with {
+  display: block;
+  width: 100%;
+  margin: 20px 0;
+}
+
+.with ~ label {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.with ~ label > input {
+  padding: 20px;
+}
+
+.innerDiv {
+  width: 30vw;
+}
+
+.password{
+  margin-bottom: -15px;
+}
+
+.passStrength {
+  text-align: left;
+}
+
+.policy {
+  text-decoration: underline;
+}
