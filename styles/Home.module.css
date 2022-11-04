@@ -2,6 +2,12 @@
   display: flex;
   flex-direction: column;
   gap: 20vh;
+  width: 400px;
+  padding: 20px;
+}
+
+.logo {
+  width: 100%;
 }
 
 .loginSignup {
@@ -16,9 +22,11 @@
 }
 
 @media (max-width: 600px) {
-  .grid {
-    width: 100%;
+  .innerContainer {
+    display: flex;
     flex-direction: column;
+    gap: 20vh;
+    width: 100%;
   }
 }
 
