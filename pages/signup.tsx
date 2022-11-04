@@ -24,13 +24,15 @@ const Signup = () => {
           <br />- Ireland, and
           <br />- The US
         </p>
-        <Link href="./signupMain">
+        <Link className={styles.link} href="./signupMain">
           <button className={`button main-blue ${styles.okay}`}>
+            {/* eslint-disable-next-line react/no-unescaped-entities */}
             THAT'S OKAY
           </button>
         </Link>
         <div className={styles.noCountry}>
           <div className={styles.innerDiv}>
+            {/* eslint-disable-next-line react/no-unescaped-entities */}
             <h4 className={styles.letYouKnow}>DON'T SEE YOUR COUNTRY?</h4>
             <p>
               Tap here to let us know.

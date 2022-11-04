@@ -14,8 +14,54 @@
   padding: 20px;
 }
 
+.label p {
+  margin: 0;
+}
+
 .innerDiv {
-  width: 30vw;
+  max-width: 400px;
+  margin: 10px;
+}
+
+.form {
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.form  button,
+.form input {
+  display: block;
+  width: 100%;
+}
+
+.form input {
+  background-color: white;
+}
+
+.form input.email:focus {
+  outline: none;
+}
+
+.pswContainer {
+  /* border: none; */
+  background-color: white;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  /* justify-content: center; */
+  display: grid;
+  grid-template-columns: 90% 10%;
+}
+
+.input {
+  height: 120%;
+  border: none;
+  outline: none;
 }
 
 .password{
