@@ -5,6 +5,49 @@ import styles from "../styles/SignupMain.module.css";
 
 const signupMain = () => {
   const [showPwd, setShowPwd] = useState<boolean>(false);
+  const [inputs, setInputs] = useState({
+    email: "",
+    password: "",
+    passwordStrength: "Weak",
+  });
+  const checkPasswordStrength = (input: string) => {
+    const isCapital = (capital: string) =>
+      capital.charCodeAt(0) > 64 && capital.charCodeAt(0) < 91;
+
+    const isSmall = (small: string) =>
+      small.charCodeAt(0) > 96 && small.charCodeAt(0) < 123;
+
+    const isNumber = (number: string) =>
+      number.charCodeAt(0) > 47 && number.charCodeAt(0) < 58;
+
+    if (input.length < 5) return "Weak";
+    if (
+      input.length < 8 &&
+      input.split("").some((el) => isCapital(el)) &&
+      input.split("").some((el) => isSmall(el)) &&
+      input.split("").some((el) => isNumber(el)) &&
+      input.split("").some((el) => !isSmall(el) && !isCapital(el))
+    )
+      return "Medium";
+    if (
+      input.length >= 8 &&
+      input.split("").some((el) => isCapital(el)) &&
+      input.split("").some((el) => isSmall(el)) &&
+      input.split("").some((el) => isNumber(el)) &&
+      input
+        .split("")
+        .some((el) => !isSmall(el) && !isCapital(el) && !isNumber(el))
+    )
+      return "Strong";
+    if (
+      input.length >= 8 &&
+      input.split("").some((el) => isCapital(el) || isSmall(el)) &&
+      input.split("").some((el) => isSmall(el) || isNumber(el)) &&
+      input.split("").some((el) => isNumber(el) || isCapital(el))
+    )
+      return "Medium";
+    return "Weak";
+  };
   return (
     <main className="container  blue-gradient white">
       <Head>
@@ -32,6 +75,13 @@ const signupMain = () => {
               Email <span className="star">*</span>
             </p>
             <input
+              onChange={(e) => {
+                setInputs((prev) => ({
+                  ...prev,
+                  email: e.target.value,
+                }));
+              }}
+              value={inputs.email}
               required
               id="email"
               className="button email"
@@ -45,6 +95,14 @@ const signupMain = () => {
             </span>
             <div className={styles.pswContainer}>
               <input
+                onChange={(e) => {
+                  setInputs((prev) => ({
+                    ...prev,
+                    password: e.target.value,
+                    passwordStrength: checkPasswordStrength(e.target.value),
+                  }));
+                }}
+                value={inputs.password}
                 required
                 id="password"
                 className={styles.input}
@@ -63,7 +121,24 @@ const signupMain = () => {
               )}
             </div>
           </label>
-          <p className={styles.passStrength}>Password Strength:</p>
+          <p className={styles.passStrength}>
+            Password Strength:{" "}
+            <span
+              style={{
+                color: `${
+                  inputs.passwordStrength === "Weak"
+                    ? "red"
+                    : inputs.passwordStrength === "Medium"
+                    ? "orange"
+                    : "green"
+                }`,
+                fontWeight: "bolder",
+                fontSize: "1.2rem",
+              }}
+            >
+              {inputs.passwordStrength}
+            </span>
+          </p>
 
           <input
             type="submit"
