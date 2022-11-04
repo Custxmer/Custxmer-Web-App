@@ -24,7 +24,7 @@ const Signup = () => {
           <br />- Ireland, and
           <br />- The US
         </p>
-        <Link href="./signupMain">
+        <Link className={styles.link} href="./signupMain">
           <button className={`button main-blue ${styles.okay}`}>
             {/* eslint-disable-next-line react/no-unescaped-entities */}
             THAT'S OKAY

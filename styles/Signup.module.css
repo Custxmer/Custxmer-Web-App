@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
+  width: 100%;
 }
 
 .logo {
@@ -21,10 +22,22 @@
   background-size: 130%;
 }
 
+.link {
+  width: 100%;
+}
+
+.link > * {
+  width: 100%;
+}
+
 .innerDiv {
   width: 100%;
   height: 100%;
   background-color: rgba(63, 63, 190, 0.9);
+}
+
+.innerDiv > * {
+  width: 100%;
 }
 
 .letYouKnow {
