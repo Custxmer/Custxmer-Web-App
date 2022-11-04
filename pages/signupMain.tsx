@@ -130,7 +130,7 @@ const signupMain = () => {
                     ? "red"
                     : inputs.passwordStrength === "Medium"
                     ? "orange"
-                    : "green"
+                    : "#77ff77"
                 }`,
                 fontWeight: "bolder",
                 fontSize: "1.2rem",
