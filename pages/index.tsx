@@ -27,6 +27,7 @@ export default function Home() {
             className={styles.logo}
             src="/logo_slogan.png"
             alt="Logo"
+            priority={true}
           />
         </div>
         <div className={styles.loginSignup}>

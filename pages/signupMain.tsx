@@ -20,15 +20,7 @@ const signupMain = () => {
     const isNumber = (number: string) =>
       number.charCodeAt(0) > 47 && number.charCodeAt(0) < 58;
 
-    if (input.length < 5) return "Weak";
-    if (
-      input.length < 8 &&
-      input.split("").some((el) => isCapital(el)) &&
-      input.split("").some((el) => isSmall(el)) &&
-      input.split("").some((el) => isNumber(el)) &&
-      input.split("").some((el) => !isSmall(el) && !isCapital(el))
-    )
-      return "Medium";
+    if (input.length < 8) return "Weak";
     if (
       input.length >= 8 &&
       input.split("").some((el) => isCapital(el)) &&
@@ -41,13 +33,17 @@ const signupMain = () => {
       return "Strong";
     if (
       input.length >= 8 &&
-      input.split("").some((el) => isCapital(el) || isSmall(el)) &&
-      input.split("").some((el) => isSmall(el) || isNumber(el)) &&
-      input.split("").some((el) => isNumber(el) || isCapital(el))
+      input.split("").some((el) => isSmall(el)) &&
+      input.split("").some((el) => isCapital(el)) &&
+      input.split("").some((el) => isNumber(el))
     )
       return "Medium";
     return "Weak";
   };
+
+  const emailIsValid = (email: string) =>
+    !email.match(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/);
+
   return (
     <main className="container  blue-gradient white">
       <Head>
@@ -86,6 +82,7 @@ const signupMain = () => {
               id="email"
               className="button email"
               type="email"
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
             />
           </label>
           <label className={styles.label} htmlFor="password">
@@ -130,7 +127,7 @@ const signupMain = () => {
                     ? "red"
                     : inputs.passwordStrength === "Medium"
                     ? "orange"
-                    : "green"
+                    : "#77ff77"
                 }`,
                 fontWeight: "bolder",
                 fontSize: "1.2rem",
@@ -140,11 +137,25 @@ const signupMain = () => {
             </span>
           </p>
 
+          {/* <div style={{ opacity: 1}}> */}
           <input
+            style={{
+              opacity:
+                (inputs.passwordStrength === "Weak" || emailIsValid(inputs.email))
+                  ? 0.5
+                  : 1,
+                  cursor: (inputs.passwordStrength === "Weak" || emailIsValid(inputs.email))
+                  ? ''
+                  : 'pointer',
+            }}
             type="submit"
             value="SIGN UP"
             className={`button main-blue ${styles.with}`}
+            disabled={
+              inputs.passwordStrength === "Weak" || emailIsValid(inputs.email)
+            }
           />
+          {/* </div> */}
         </form>
         <p>
           By continuing you agree to <br />{" "}
