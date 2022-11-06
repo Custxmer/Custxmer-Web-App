@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
+import Image from 'next/image';
 import Link from 'next/link';
 import styles from '../styles/SignupMain.module.css';
 
@@ -60,7 +61,9 @@ const signupMain = () => {
         <button className={`button main-blue ${styles.with}`}>
           <i className="fab fa-apple fa-2x"></i> <span>Sign up with Apple</span>
         </button>
-        <h2>OR</h2>
+        <h2>
+          OR<i className="fab fa-circle-info"></i>
+        </h2>
         <form
           onSubmit={(e) => e.preventDefault()}
           className={styles.form}
@@ -99,9 +102,7 @@ const signupMain = () => {
             <br />
             <span className={styles.password}>
               Password{' '}
-              <sup>
-                <i className="fab circle-info"></i>
-              </sup>
+              <sup><Image className={styles.pointer} width={15} height={15} src="/info.png" alt="info" /></sup>
             </span>
             <div className={styles.pswContainer}>
               <input

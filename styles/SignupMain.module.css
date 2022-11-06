@@ -64,6 +64,10 @@
   outline: none;
 }
 
+.pointer {
+  cursor: pointer;
+}
+
 .password{
   margin-bottom: -15px;
 }
