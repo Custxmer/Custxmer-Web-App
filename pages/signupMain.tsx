@@ -1,14 +1,14 @@
-import React, { useState } from "react";
-import Head from "next/head";
-import Link from "next/link";
-import styles from "../styles/SignupMain.module.css";
+import React, { useState } from 'react';
+import Head from 'next/head';
+import Link from 'next/link';
+import styles from '../styles/SignupMain.module.css';
 
 const signupMain = () => {
   const [showPwd, setShowPwd] = useState<boolean>(false);
   const [inputs, setInputs] = useState({
-    email: "",
-    password: "",
-    passwordStrength: "Weak",
+    email: '',
+    password: '',
+    passwordStrength: 'Weak',
   });
   const checkPasswordStrength = (input: string) => {
     const isCapital = (capital: string) =>
@@ -20,32 +20,32 @@ const signupMain = () => {
     const isNumber = (number: string) =>
       number.charCodeAt(0) > 47 && number.charCodeAt(0) < 58;
 
-    if (input.length < 8) return "Weak";
+    if (input.length < 8) return 'Weak';
     if (
       input.length >= 8 &&
-      input.split("").some((el) => isCapital(el)) &&
-      input.split("").some((el) => isSmall(el)) &&
-      input.split("").some((el) => isNumber(el)) &&
+      input.split('').some((el) => isCapital(el)) &&
+      input.split('').some((el) => isSmall(el)) &&
+      input.split('').some((el) => isNumber(el)) &&
       input
-        .split("")
+        .split('')
         .some((el) => !isSmall(el) && !isCapital(el) && !isNumber(el))
     )
-      return "Strong";
+      return 'Strong';
     if (
       input.length >= 8 &&
-      input.split("").some((el) => isSmall(el)) &&
-      input.split("").some((el) => isCapital(el)) &&
-      input.split("").some((el) => isNumber(el))
+      input.split('').some((el) => isSmall(el)) &&
+      input.split('').some((el) => isCapital(el)) &&
+      input.split('').some((el) => isNumber(el))
     )
-      return "Medium";
-    return "Weak";
+      return 'Medium';
+    return 'Weak';
   };
 
   const emailIsValid = (email: string) =>
     !email.match(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/);
 
   return (
-    <main className="container  blue-gradient white">
+    <main className="container2  blue-gradient white">
       <Head>
         <link
           rel="stylesheet"
@@ -67,9 +67,7 @@ const signupMain = () => {
           action=""
         >
           <label className={styles.label} htmlFor="email">
-            <p className={styles.password}>
-              Email <span className="star">*</span>
-            </p>
+            <p className={styles.password}>Email</p>
             <input
               onChange={(e) => {
                 setInputs((prev) => ({
@@ -84,11 +82,26 @@ const signupMain = () => {
               type="email"
               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
             />
+            <p>
+              Email validity:{' '}
+              {inputs.email && (
+                <span
+                  style={{
+                    color: emailIsValid(inputs.email) ? '#ff4444' : '#77ff77',
+                  }}
+                >
+                  {emailIsValid(inputs.email) ? 'Invalid' : 'Valid'}
+                </span>
+              )}
+            </p>
           </label>
           <label className={styles.label} htmlFor="password">
             <br />
             <span className={styles.password}>
-              Password <span className="star">*</span>
+              Password{' '}
+              <sup>
+                <i className="fab circle-info"></i>
+              </sup>
             </span>
             <div className={styles.pswContainer}>
               <input
@@ -103,7 +116,7 @@ const signupMain = () => {
                 required
                 id="password"
                 className={styles.input}
-                type={showPwd ? "text" : "password"}
+                type={showPwd ? 'text' : 'password'}
               />
               {showPwd ? (
                 <i
@@ -119,32 +132,33 @@ const signupMain = () => {
             </div>
           </label>
           <p className={styles.passStrength}>
-            Password Strength:{" "}
-            <span
-              style={{
-                color: `${
-                  inputs.passwordStrength === "Weak"
-                    ? "red"
-                    : inputs.passwordStrength === "Medium"
-                    ? "orange"
-                    : "#77ff77"
-                }`,
-                fontWeight: "bolder",
-                fontSize: "1.2rem",
-              }}
-            >
-              {inputs.passwordStrength}
-            </span>
+            Password Strength:{' '}
+            {inputs.password && (
+              <span
+                style={{
+                  color: `${
+                    inputs.passwordStrength === 'Weak'
+                      ? '#ff4444'
+                      : inputs.passwordStrength === 'Medium'
+                      ? 'orange'
+                      : '#77ff77'
+                  }`,
+                }}
+              >
+                {inputs.passwordStrength}
+              </span>
+            )}
           </p>
 
           {/* <div style={{ opacity: 1}}> */}
           <input
             style={{
               opacity:
-                (inputs.passwordStrength === "Weak" || emailIsValid(inputs.email))
+                inputs.passwordStrength === 'Weak' || emailIsValid(inputs.email)
                   ? 0.5
                   : 1,
-                  cursor: (inputs.passwordStrength === "Weak" || emailIsValid(inputs.email))
+              cursor:
+                inputs.passwordStrength === 'Weak' || emailIsValid(inputs.email)
                   ? ''
                   : 'pointer',
             }}
@@ -152,13 +166,20 @@ const signupMain = () => {
             value="SIGN UP"
             className={`button main-blue ${styles.with}`}
             disabled={
-              inputs.passwordStrength === "Weak" || emailIsValid(inputs.email)
+              inputs.passwordStrength === 'Weak' || emailIsValid(inputs.email)
             }
+            // title={
+            //   (
+            //     inputs.passwordStrength === 'Weak' || emailIsValid(inputs.email)
+            //   )
+            //     ? 'Email must be valid, Password must be at least medium.'
+            //     : ''
+            // }
           />
           {/* </div> */}
         </form>
         <p>
-          By continuing you agree to <br />{" "}
+          By continuing you agree to <br />{' '}
           <span className={styles.policy}>
             <Link href="https://www.custxmer.com/terms">
               {/* eslint-disable-next-line react/no-unescaped-entities */}

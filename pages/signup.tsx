@@ -6,7 +6,7 @@ import styles from "../styles/Signup.module.css";
 
 const Signup = () => {
   return (
-    <main className={`container blue-gradient white`}>
+    <main className={`container2 blue-gradient white`}>
       
       <div>
         <h1 className={`heading white`}>Sign Up</h1>
