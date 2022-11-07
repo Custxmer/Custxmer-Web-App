@@ -3,7 +3,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from '../styles/SignupMain.module.css';
-import PasswordRequirements from '../components/PasswordRequirements';
+import PasswordRequirements from '../components/modals/PasswordRequirements';
 
 const signupMain = () => {
   const [showPwd, setShowPwd] = useState<boolean>(false);
