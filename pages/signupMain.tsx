@@ -3,14 +3,17 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from '../styles/SignupMain.module.css';
+import PasswordRequirements from '../components/PasswordRequirements';
 
 const signupMain = () => {
   const [showPwd, setShowPwd] = useState<boolean>(false);
+  const [showPwdModal, setShowPwdModal] = useState(false);
   const [inputs, setInputs] = useState({
     email: '',
     password: '',
     passwordStrength: 'Weak',
   });
+
   const checkPasswordStrength = (input: string) => {
     const isCapital = (capital: string) =>
       capital.charCodeAt(0) > 64 && capital.charCodeAt(0) < 91;
@@ -64,6 +67,9 @@ const signupMain = () => {
         <h2>
           OR<i className="fab fa-circle-info"></i>
         </h2>
+        {showPwdModal && (
+          <PasswordRequirements setShowPwdModal={setShowPwdModal} />
+        )}
         <form
           onSubmit={(e) => e.preventDefault()}
           className={styles.form}
@@ -102,7 +108,15 @@ const signupMain = () => {
             <br />
             <span className={styles.password}>
               Password{' '}
-              <sup><Image className={styles.pointer} width={15} height={15} src="/info.png" alt="info" /></sup>
+              <sup onClick={() => setShowPwdModal(true)}>
+                <Image
+                  className={styles.pointer}
+                  width={15}
+                  height={15}
+                  src="/info.png"
+                  alt="info"
+                />
+              </sup>
             </span>
             <div className={styles.pswContainer}>
               <input
