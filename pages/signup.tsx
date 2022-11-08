@@ -1,16 +1,15 @@
-import React from "react";
-import Image from "next/image";
+import React from 'react';
+import Image from 'next/image';
 
-import Link from "next/link";
-import styles from "../styles/Signup.module.css";
+import Link from 'next/link';
+import styles from '../styles/Signup.module.css';
 
 const Signup = () => {
   return (
-    <main className={`container blue-gradient white`}>
-      
+    <main className={`container2 blue-gradient white`}>
       <div>
         <h1 className={`heading white`}>Sign Up</h1>
-        
+
         <Image
           width={400}
           height={100}
@@ -30,17 +29,19 @@ const Signup = () => {
             THAT'S OKAY
           </button>
         </Link>
-        <div className={styles.noCountry}>
-          <div className={styles.innerDiv}>
-            {/* eslint-disable-next-line react/no-unescaped-entities */}
-            <h4 className={styles.letYouKnow}>DON'T SEE YOUR COUNTRY?</h4>
-            <p>
-              Tap here to let us know.
-              <br />
-              We will let you know when we add it.
-            </p>
+        <Link href="./proposeACountry">
+          <div className={styles.noCountry}>
+            <div className={styles.innerDiv}>
+              {/* eslint-disable-next-line react/no-unescaped-entities */}
+              <h4 className={styles.letYouKnow}>DON'T SEE YOUR COUNTRY?</h4>
+              <p>
+                Tap here to let us know.
+                <br />
+                We will let you know when we add it.
+              </p>
+            </div>
           </div>
-        </div>
+        </Link>
         <button className={`button already`}>ALREADY HAVE AN ACCOUNT?</button>
       </div>
     </main>

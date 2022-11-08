@@ -5,7 +5,7 @@ import styles from "../styles/Home.module.css";
 
 export default function Home() {
   return (
-    <div className={`container blue-gradient`}>
+    <div className={`container2 blue-gradient`}>
       <Head>
         <title>Custxmer App</title>
         <meta
