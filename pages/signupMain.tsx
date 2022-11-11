@@ -5,7 +5,7 @@ import Link from 'next/link';
 import styles from '../styles/SignupMain.module.css';
 import PasswordRequirements from '../components/modals/PasswordRequirements';
 
-const signupMain = () => {
+const signupMain: React.FC = () => {
   const [showPwd, setShowPwd] = useState<boolean>(false);
   const [showPwdModal, setShowPwdModal] = useState(false);
   const [inputs, setInputs] = useState({
@@ -166,32 +166,31 @@ const signupMain = () => {
           </p>
 
           {/* <div style={{ opacity: 1}}> */}
-          <input
-            style={{
-              opacity:
+          <Link href={{
+            pathname: "/emailVerification",
+            query: {email: inputs.email}, // the data
+          }}>
+            <input
+              style={{
+                opacity:
+                  inputs.passwordStrength === 'Weak' ||
+                  emailIsValid(inputs.email)
+                    ? 0.5
+                    : 1,
+                cursor:
+                  inputs.passwordStrength === 'Weak' ||
+                  emailIsValid(inputs.email)
+                    ? ''
+                    : 'pointer',
+              }}
+              type="submit"
+              value="SIGN UP"
+              className={`button main-blue ${styles.with}`}
+              disabled={
                 inputs.passwordStrength === 'Weak' || emailIsValid(inputs.email)
-                  ? 0.5
-                  : 1,
-              cursor:
-                inputs.passwordStrength === 'Weak' || emailIsValid(inputs.email)
-                  ? ''
-                  : 'pointer',
-            }}
-            type="submit"
-            value="SIGN UP"
-            className={`button main-blue ${styles.with}`}
-            disabled={
-              inputs.passwordStrength === 'Weak' || emailIsValid(inputs.email)
-            }
-            // title={
-            //   (
-            //     inputs.passwordStrength === 'Weak' || emailIsValid(inputs.email)
-            //   )
-            //     ? 'Email must be valid, Password must be at least medium.'
-            //     : ''
-            // }
-          />
-          {/* </div> */}
+              }
+            />
+          </Link>
         </form>
         <p>
           By continuing you agree to <br />{' '}
