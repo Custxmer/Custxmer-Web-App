@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styles from '../styles/Signup.module.css';
 
-const Signup = () => {
+const Signup: React.FC = () => {
   return (
     <main className={`container2 blue-gradient white`}>
       <div>

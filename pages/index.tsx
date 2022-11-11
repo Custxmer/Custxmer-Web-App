@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "../styles/Home.module.css";
 
-export default function Home() {
+const Home: React.FC = () => {
   return (
     <div className={`container2 blue-gradient`}>
       <Head>
@@ -46,3 +46,5 @@ export default function Home() {
     </div>
   );
 }
+
+export default Home;
