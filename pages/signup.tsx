@@ -42,7 +42,7 @@ const Signup: React.FC = () => {
             </div>
           </div>
         </Link>
-        <button className={`button transparent`}>ALREADY HAVE AN ACCOUNT?</button>
+        <Link href="/login"><button className={`button transparent`}>ALREADY HAVE AN ACCOUNT?</button></Link>
       </div>
     </main>
   );
