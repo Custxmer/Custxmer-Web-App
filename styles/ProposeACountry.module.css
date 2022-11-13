@@ -17,18 +17,24 @@
   width: 500px;
   background-color: rgb(241, 241, 241);
   padding: 10px;
+  margin: 10px;
 }
 
 .form p:first-of-type {
   margin-bottom: 0;
 }
 
+.invalid {
+  margin: 0;
+  color:rgb(190, 42, 42);
+  font-size: 1.2rem;
+  /* font-weight: 700; */
+}
+
 .form > * {
   display: block;
   width: 100%;
 }
-
-
 
 .form select,
 .form input,
@@ -38,6 +44,17 @@
   border-radius: 10px;
   background-color: white;
   border: 1px solid grey;
+  
+}
+
+.form input,
+.form select {
+  height: 40px;
+}
+
+.form > input:first-of-type {
+  box-sizing: border-box;
+  padding: 10px;
 }
 
 .form textarea {
@@ -68,8 +85,11 @@
   font-weight: bolder;
 }
 
+.form textarea {
+  padding: 10px;
+}
+
 .form .cancel {
-  
   border: 1px solid grey;
 }
 

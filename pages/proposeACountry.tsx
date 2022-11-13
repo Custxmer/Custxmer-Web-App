@@ -1,9 +1,22 @@
 import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 import Link from 'next/link';
+
+import ProposalSent from '../components/modals/ProposalSent';
 import styles from '../styles/ProposeACountry.module.css';
 
 const proposeACountry: React.FC = () => {
+  const router = useRouter();
   const [countries, setCountries] = useState([]);
+  const [inputs, setInputs] = useState({
+    country: '',
+    email: '',
+    providers: '',
+  });
+  const [showInvalid, setShowInvalid] = useState(false);
+  const [showNoCountry, setShowNoCountry] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  console.log('inputes=>', inputs);
 
   useEffect(() => {
     const fetchCountries = async () => {
@@ -27,7 +40,6 @@ const proposeACountry: React.FC = () => {
             updated_at: string;
           }) => country['Country name']
         );
-        console.log('countries array', countriesArray);
         setCountries(countriesArray);
       } catch (err) {
         console.log('Err', err);
@@ -45,17 +57,36 @@ const proposeACountry: React.FC = () => {
           <br />
           So we can let you know once we add it.
         </p>
+
         <input
+          onChange={(e) => {
+            setShowInvalid(false);
+            setInputs((prev) => ({
+              ...prev,
+              email: e.target.value,
+            }));
+          }}
           required
-          type="email"
+          type="text"
           placeholder="Enter your email address..."
+          value={inputs.email}
         />
+        {showInvalid && <p className={styles.invalid}>Invalid email</p>}
         <label htmlFor="countries">
           <div>Country</div>
           <select
             name="countries"
             id="countries"
             placeholder="Select a country"
+            onChange={(e) => {
+              setShowNoCountry(false);
+              if (e.target.value) {
+                setInputs((prev) => ({
+                  ...prev,
+                  country: e.target.value,
+                }));
+              }
+            }}
           >
             <option className={styles.placeholder}>Select a Country...</option>
             {countries[0] &&
@@ -63,6 +94,9 @@ const proposeACountry: React.FC = () => {
                 <option key={country}>{country}</option>
               ))}
           </select>
+          {showNoCountry && (
+            <p className={styles.invalid}>No country selected</p>
+          )}
         </label>
         <p>
           Providers that you are interested in, in this country.
@@ -75,14 +109,35 @@ const proposeACountry: React.FC = () => {
           cols={30}
           rows={3}
           placeholder="Names, info and the service(s) they provide..."
+          onChange={(e) =>
+            setInputs((prev) => ({
+              ...prev,
+              providers: e.target.value,
+            }))
+          }
         ></textarea>
         <div className={styles.buttonsContainer}>
-          <Link href="/signup"><button className={`${styles.cancel} main-blue`}>Cancel</button></Link>
-          <button className={styles.submit} type="submit">
+          <Link href="/signup">
+            <button className={`${styles.cancel} main-blue`}>Cancel</button>
+          </Link>
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              if (
+                !inputs.email.match(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/)
+              )
+                return setShowInvalid(true);
+              if (!inputs.country) return setShowNoCountry(true);
+              setShowModal(true);
+            }}
+            className={styles.submit}
+            type="submit"
+          >
             SUBMIT
           </button>
         </div>
       </form>
+      {showModal && <ProposalSent setShowModal={setShowModal} />}
     </div>
   );
 };
