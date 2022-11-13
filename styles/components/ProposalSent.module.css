@@ -1,0 +1,23 @@
+.innerDiv {
+  color: white;
+  text-align: center;
+  margin: 20px;
+  padding: 40px;
+}
+
+.innerDiv span {
+  display: block;
+  text-align: right;
+  font-size: 2rem;
+  height: 40px;
+  margin-top: -15px;
+}
+
+.innerDiv span  strong {
+  cursor: pointer;
+
+}
+
+.animation {
+  height: 200px;
+}
