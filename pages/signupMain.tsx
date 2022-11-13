@@ -166,10 +166,12 @@ const signupMain: React.FC = () => {
           </p>
 
           {/* <div style={{ opacity: 1}}> */}
-          <Link href={{
-            pathname: "/emailVerification",
-            query: {email: inputs.email}, // the data
-          }}>
+          <Link
+            href={{
+              pathname: '/emailVerification',
+              query: { email: inputs.email }, // the data
+            }}
+          >
             <input
               style={{
                 opacity:
@@ -195,19 +197,21 @@ const signupMain: React.FC = () => {
         <p>
           By continuing you agree to <br />{' '}
           <span className={styles.policy}>
-            <Link href="https://www.custxmer.com/terms">
+            <Link className="link" href="https://www.custxmer.com/terms">
               {/* eslint-disable-next-line react/no-unescaped-entities */}
               Custxmer's Terms & Conditions
             </Link>
           </span>
           &nbsp;&&nbsp;
           <span className={styles.policy}>
-            <Link href="https://www.custxmer.com/privacy">Privacy Policy</Link>
+            <Link className="link" href="https://www.custxmer.com/privacy">Privacy Policy</Link>
           </span>
         </p>
-        <button className={`button main-blue already`}>
-          ALREADY HAVE AN ACCOUNT?
-        </button>
+        <Link href="/login">
+          <button className={`button main-blue transparent`}>
+            ALREADY HAVE AN ACCOUNT?
+          </button>
+        </Link>
       </div>
     </main>
   );

@@ -10,13 +10,14 @@ const emailVerification: React.FC = () => {
   console.log("data", data);
   const emailContainer = useRef(null);
   useEffect(() => {
-    lottie.loadAnimation({
+    const instance = lottie.loadAnimation({
       container: emailContainer.current,
       render: 'svg',
       loop: true,
       autoplay: true,
       animationData: require('/utils/emailVerificationAnimation.json'),
     });
+    return () => instance.destroy();
   }, []);
 
   return (
@@ -44,7 +45,7 @@ const emailVerification: React.FC = () => {
           <button className="input second-blue-text">
             <i className="fa fa-unlock"></i>&nbsp;VERIFY!
           </button>
-          <button className="button already">
+          <button className="button transparent">
             <i className="white fas fa-paper-plane"></i>&nbsp;RESEND
             VERIFICATION EMAIL!
           </button>
