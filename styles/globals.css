@@ -27,8 +27,26 @@ a {
   background-image: linear-gradient(#060556, #435fdc);
 }
 
+.modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .second-blue {
   background: #2255f0;
+}
+
+.second-blue-text {
+  color: #2255f0;
+  font-weight: bolder;
 }
 
 .white-shadow {
@@ -57,6 +75,15 @@ a {
   box-shadow: 0px 3px 4px #060556;
 }
 
+.input {
+  width: 100%;
+  min-height: 40px;
+  border-radius: 10px;
+  background-color: white;
+  border: 1px solid grey;
+  padding: 10px;
+}
+
 .white {
   color: white;
 }
@@ -71,7 +98,11 @@ a {
   font-size: 2.5rem;
 }
 
-.already {
+.link:hover {
+  color: unset;
+}
+
+.transparent {
   width: 100%;
   background-color: transparent;
   color: white;

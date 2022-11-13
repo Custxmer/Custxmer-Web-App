@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styles from '../styles/Signup.module.css';
 
-const Signup = () => {
+const Signup: React.FC = () => {
   return (
     <main className={`container2 blue-gradient white`}>
       <div>
@@ -42,7 +42,7 @@ const Signup = () => {
             </div>
           </div>
         </Link>
-        <button className={`button already`}>ALREADY HAVE AN ACCOUNT?</button>
+        <button className={`button transparent`}>ALREADY HAVE AN ACCOUNT?</button>
       </div>
     </main>
   );

@@ -1,12 +1,100 @@
 .parent {
   display: flex;
-  /* flex-direction: column; */
   justify-content: center;
+  margin-top: 40px;
+  color: rgb(55, 49, 49);
+}
+
+.heading {
+  text-align: center;
+  font-weight: 600;
 }
 
 .form {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  width: 30vw;
+  width: 500px;
+  background-color: rgb(241, 241, 241);
+  padding: 10px;
+  margin: 10px;
+}
+
+.form p:first-of-type {
+  margin-bottom: 0;
+}
+
+.invalid {
+  margin: 0;
+  color:rgb(190, 42, 42);
+  font-size: 1.2rem;
+  /* font-weight: 700; */
+}
+
+.form > * {
+  display: block;
+  width: 100%;
+}
+
+.form select,
+.form input,
+.form textarea {
+  width: 100%;
+  min-height: 40px;
+  border-radius: 10px;
+  background-color: white;
+  border: 1px solid grey;
+  
+}
+
+.form input,
+.form select {
+  height: 40px;
+}
+
+.form > input:first-of-type {
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+.form textarea {
+  margin-top: -25px;
+}
+
+.placeholder {
+  display: none;
+  color: rgb(190, 42, 42);
+}
+
+.buttonsContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+  margin-top: 40px;
+}
+
+.buttonsContainer * {
+  width: 50%;
+  width: 100%;
+  min-height: 40px;
+  border-radius: 10px;
+  background-color: white;
+  font-weight: bolder;
+}
+
+.form textarea {
+  padding: 10px;
+}
+
+.form .cancel {
+  border: 1px solid grey;
+}
+
+.submit {
+  background-color: #435fdc;
+  color: white;
+  border: none;
 }
