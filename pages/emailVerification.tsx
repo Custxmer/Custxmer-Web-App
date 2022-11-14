@@ -1,13 +1,15 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
+import Help from '../components/modals/Help';
 import styles from '../styles/EmailVerification.module.css';
 import lottie from 'lottie-web';
 
 const emailVerification: React.FC = () => {
   const router = useRouter();
+  const [help, setHelp] = useState(false);
   const data = router.query;
-  console.log("data", data);
+  console.log('data', data);
   const emailContainer = useRef(null);
   useEffect(() => {
     const instance = lottie.loadAnimation({
@@ -46,11 +48,15 @@ const emailVerification: React.FC = () => {
             <i className="fa fa-unlock"></i>&nbsp;VERIFY!
           </button>
           <button className="button transparent">
-            <i className="white fas fa-paper-plane"></i>&nbsp;RESEND
+            <i className="white fas fa-paper-plane"></i>&nbsp;&nbsp;RESEND
             VERIFICATION EMAIL!
           </button>
         </div>
       </div>
+      <button onClick={() => setHelp(true)} className={styles.helpButton}>
+        <i className="fas fa-question"></i>
+      </button>
+      {help && <Help setHelp={setHelp} />}
     </main>
   );
 };
