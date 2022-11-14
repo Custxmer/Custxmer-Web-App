@@ -13,7 +13,7 @@ const PasswordRequirements = ({ setShowPwdModal }: Props) => {
       }}
       className={styles.parent}
     >
-      <div onClick={(e) => e.stopPropagation()} className={styles.innerDiv}>
+      <div onClick={(e) => e.stopPropagation()} className={`${styles.innerDiv} white-shadow2`}>
         <div className={styles.buttonContainer}>
           <button
             className={styles.button}

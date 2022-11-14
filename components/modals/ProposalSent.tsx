@@ -9,7 +9,6 @@ interface Props {
 
 const ProposalSent = ({ setShowModal }: Props) => {
   const router = useRouter();
-  const emailContainer = useRef(null);
   const animationContainer = useRef(null);
 
   useEffect(() => {
@@ -32,7 +31,7 @@ const ProposalSent = ({ setShowModal }: Props) => {
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className={`${styles.innerDiv} second-blue`}
+        className={`${styles.innerDiv} white-shadow2 second-blue`}
       >
         <span>
           <strong
