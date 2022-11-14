@@ -2,12 +2,14 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Help from '../components/modals/Help';
+import EmailVerified from '../components/modals/EmailVerified';
 import styles from '../styles/EmailVerification.module.css';
 import lottie from 'lottie-web';
 
 const emailVerification: React.FC = () => {
   const router = useRouter();
   const [help, setHelp] = useState(false);
+  const [emailVerified, setEmailVerified] = useState(false);
   const data = router.query;
   console.log('data', data);
   const emailContainer = useRef(null);
@@ -44,7 +46,7 @@ const emailVerification: React.FC = () => {
             type="text"
             placeholder="Enter your verification code..."
           />
-          <button className="input second-blue-text">
+          <button onClick={() => setEmailVerified(true)} className="input second-blue-text">
             <i className="fa fa-unlock"></i>&nbsp;VERIFY!
           </button>
           <button className="button transparent">
@@ -57,6 +59,7 @@ const emailVerification: React.FC = () => {
         <i className="fas fa-question"></i>
       </button>
       {help && <Help setHelp={setHelp} />}
+      {emailVerified && <EmailVerified setEmailVerified={setEmailVerified} />}
     </main>
   );
 };
