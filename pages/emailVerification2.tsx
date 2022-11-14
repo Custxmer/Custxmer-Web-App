@@ -11,10 +11,10 @@ const emailVerification: React.FC = () => {
   const [help, setHelp] = useState(false);
   const [emailVerified, setEmailVerified] = useState(false);
   const data = router.query;
-  const animationContainer = useRef(null);
+  const emailContainer = useRef(null);
   useEffect(() => {
     const instance = lottie.loadAnimation({
-      container: animationContainer.current,
+      container: emailContainer.current,
       render: 'svg',
       loop: true,
       autoplay: true,
@@ -32,25 +32,28 @@ const emailVerification: React.FC = () => {
         ></link>
       </Head>
       <div className={styles.innerDiv}>
-        <h1>Email Verification</h1>
-        <div className={styles.animation} ref={animationContainer}></div>
+        <h1>Password Reset</h1>
+        <div className={styles.animation} ref={emailContainer}></div>
         <div>
           <h3>Check your inbox!</h3>
           <p className={styles.just}>And your spam folder, just in case 🤷</p>
         </div>
-        <p>We've just sent you a verification code to {data.email}.</p>
+        <p>We've just sent you a temporary password to {data.email}.</p>
         <div className={styles.buttons}>
           <input
             className="input"
             type="text"
-            placeholder="Enter your verification code..."
+            placeholder="Enter your temporary password..."
           />
-          <button onClick={() => setEmailVerified(true)} className="input second-blue-text">
-            <i className="fa fa-unlock"></i>&nbsp;VERIFY!
+          <button
+            onClick={() => router.push('/resetPassword')}
+            className="input second-blue-text"
+          >
+            CONTINUE
           </button>
           <button className="button transparent">
-            <i className="white fas fa-paper-plane"></i>&nbsp;&nbsp;RESEND
-            VERIFICATION EMAIL!
+            <i className={`far fa-envelope white`}></i>
+            &nbsp;&nbsp;RESEND TEMPORARY PASSWORD
           </button>
         </div>
       </div>

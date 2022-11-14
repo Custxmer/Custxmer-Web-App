@@ -58,6 +58,12 @@ a {
   border-radius: 10px;
 }
 
+/* .fa-eye-slash,
+.fa-eye {
+  position: absolute;
+  right: calc(100vw/2 - 130px);
+} */
+
 .button {
   border: none;
   height: 40px;

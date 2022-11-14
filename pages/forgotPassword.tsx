@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
+import Link from 'next/link';
 
 import styles from '../styles/ForgotPassword.module.css';
 import lottie from 'lottie-web';
@@ -60,12 +61,19 @@ const ForgotPassword = () => {
             CANCEL
           </button>
           {emailCheck.isValid && (
-            <button
-              onClick={() => route.push('/emailVerification')}
-              className={`input ${styles.button} second-blue-text`}
+            <Link
+              style={{ width: '100%' }}
+              href={{
+                pathname: '/emailVerification2',
+                query: { email: emailCheck.value },
+              }}
             >
-              CONTINUE
-            </button>
+              <button
+                className={`input ${styles.button} ${styles.innerButton} second-blue-text`}
+              >
+                CONTINUE
+              </button>
+            </Link>
           )}
         </div>
 
