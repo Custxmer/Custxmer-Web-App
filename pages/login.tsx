@@ -138,7 +138,7 @@ const Login: React.FC = () => {
             className={`button main-blue ${styles.with} ${styles2.loginButton}`}
           />
         </form>
-        <Link className="link" href="passwordReset"><p className={styles2.forgot}>FORGOT PASSWORD?</p></Link>
+        <Link className="link" href="/forgotPassword"><p className={styles2.forgot}>FORGOT PASSWORD?</p></Link>
         <Link href="/signupMain">
           {' '}
           <button className={`button main-blue transparent`}>SIGN UP</button>
