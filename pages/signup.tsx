@@ -17,7 +17,7 @@ const Signup: React.FC = () => {
           src="/world_map.png"
           alt="Logo"
         />
-        <h2>First Thing First!</h2>
+        <h2 className={styles.heading}>First Thing First!</h2>
         <p>
           Currently we are operating in:
           <br />- Ireland, and
