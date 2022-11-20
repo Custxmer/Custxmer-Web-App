@@ -1,10 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useRouter } from 'next/router';
 import Image from 'next/image';
+import Link from 'next/link';
 
-import styles from '../styles/PasswordReset.module.css';
+import styles from '../styles/ForgotPassword.module.css';
 import lottie from 'lottie-web';
 
-const passwordReset = () => {
+const ForgotPassword = () => {
+  const route = useRouter();
   const [emailCheck, setEmailCheck] = useState({
     value: '',
     exists: false,
@@ -12,14 +15,14 @@ const passwordReset = () => {
   });
   const animationContainer = useRef(null);
 
-  console.log("email=>", emailCheck)
+  console.log('email=>', emailCheck);
   useEffect(() => {
     const instance = lottie.loadAnimation({
       container: animationContainer.current,
       render: 'svg',
       loop: true,
       autoplay: true,
-      animationData: require('../utils/passwordReset.json'),
+      animationData: require('../utils/forgotPassword.json'),
     });
     return () => instance.destroy();
   }, []);
@@ -51,10 +54,26 @@ const passwordReset = () => {
         </div>
 
         <div className={styles.buttonsContainer}>
+          <button
+            onClick={() => route.push('/login')}
+            className={`input ${styles.button} second-blue-text transparent`}
+          >
+            CANCEL
+          </button>
           {emailCheck.isValid && (
-            <button className={`input ${styles.button} second-blue-text`}>
-              CONTINUE
-            </button>
+            <Link
+              style={{ width: '100%' }}
+              href={{
+                pathname: '/emailVerification2',
+                query: { email: emailCheck.value },
+              }}
+            >
+              <button
+                className={`input ${styles.button} ${styles.innerButton} second-blue-text`}
+              >
+                CONTINUE
+              </button>
+            </Link>
           )}
         </div>
 
@@ -75,4 +94,4 @@ const passwordReset = () => {
   );
 };
 
-export default passwordReset;
+export default ForgotPassword;

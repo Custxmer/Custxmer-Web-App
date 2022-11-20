@@ -53,6 +53,17 @@ a {
   box-shadow: 0px 3px 4px #fff;
 }
 
+.white-shadow2 {
+  box-shadow: 3px 2px 10px #fff;
+  border-radius: 10px;
+}
+
+/* .fa-eye-slash,
+.fa-eye {
+  position: absolute;
+  right: calc(100vw/2 - 130px);
+} */
+
 .button {
   border: none;
   height: 40px;

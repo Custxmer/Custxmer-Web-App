@@ -1,43 +1,40 @@
 import React, { useEffect, useRef } from 'react';
+import Link from 'next/link';
 import styles from '../../styles/components/ProposalSent.module.css';
-import { useRouter } from 'next/router';
+import styles2 from '../../styles/components/help.module.css';
 import lottie from 'lottie-web';
 
 interface Props {
-  setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
+  setEmailVerified: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const ProposalSent = ({ setShowModal }: Props) => {
-  const router = useRouter();
+const EmailVerified = ({ setEmailVerified }: Props) => {
   const animationContainer = useRef(null);
-
   useEffect(() => {
     const instance = lottie.loadAnimation({
       container: animationContainer.current,
       render: 'svg',
       loop: true,
       autoplay: true,
-      animationData: require('../../utils/balancingFlag.json'),
+      animationData: require('../../utils/emailVerified.json'),
     });
     return () => instance.destroy();
   }, []);
   return (
     <div
       onClick={() => {
-        setShowModal(false);
-        router.push('/');
+        setEmailVerified(false);
       }}
       className="modal"
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className={`${styles.innerDiv} white-shadow2 second-blue`}
+        className={`${styles.innerDiv} second-blue white-shadow2`}
       >
         <span>
           <strong
             onClick={() => {
-              setShowModal(false);
-              router.push('/');
+              setEmailVerified(false);
             }}
           >
             &times;
@@ -46,17 +43,14 @@ const ProposalSent = ({ setShowModal }: Props) => {
         <div className={styles.animationContainer}>
           <div className={styles.animation} ref={animationContainer}></div>
         </div>
-        <h4>Proposal Sent!</h4>
-        <p>
-          Thanks for proposing.
-          <br />
-          The more people ask for it, the sooner we will add it.
-          <br />
-          We'll let you know when we do.
-        </p>
+        <h4>Email Verified!</h4>
+          <button className={`button second-blue-text ${styles2.marginAuto}`}>
+            <i className={`far fa-thumbs-up ${styles.envelop}`}></i>
+            &nbsp;&nbsp;CONTINUE
+          </button>
       </div>
     </div>
   );
 };
 
-export default ProposalSent;
+export default EmailVerified;

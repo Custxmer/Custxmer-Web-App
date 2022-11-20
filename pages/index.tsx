@@ -1,7 +1,7 @@
-import Head from "next/head";
-import Image from "next/image";
-import Link from "next/link";
-import styles from "../styles/Home.module.css";
+import Head from 'next/head';
+import Image from 'next/image';
+import Link from 'next/link';
+import styles from '../styles/Home.module.css';
 
 const Home: React.FC = () => {
   return (
@@ -38,13 +38,15 @@ const Home: React.FC = () => {
               SIGN UP
             </button>
           </Link>
-          <button className={`main-blue button main-blue-shadow`}>
-            LOG IN
-          </button>
+          <Link href="/login">
+            <button className={`main-blue button main-blue-shadow ${styles.signup}`}>
+              LOG IN
+            </button>
+          </Link>
         </div>
       </main>
     </div>
   );
-}
+};
 
 export default Home;

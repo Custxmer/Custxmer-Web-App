@@ -6,6 +6,10 @@
   width: 100%;
 }
 
+.heading {
+  margin-top: 20px;
+}
+
 .logo {
   width: 20vw;
   height: 10vw;

@@ -7,9 +7,24 @@
   height: 100vh;
 }
 
+.helpButton {
+  border: 2px solid white;
+  background-color: white;
+  color: white;
+  border-radius: 100%;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.helpButton i {
+  margin: 0;
+}
+
 .innerDiv {
   padding: 10px;
   margin-top: 50px;
+  max-width: 400px;
 }
 
 .innerDiv h1,
