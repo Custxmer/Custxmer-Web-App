@@ -1,0 +1,23 @@
+.innerDiv {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+}
+
+.image {
+  margin-bottom: 20px;
+}
+
+.intro {
+  font-weight: 900;
+}
+
+.buttonsContainer {
+  padding-top: 20px;
+  width: 100%;
+}
+
+.buttonsContainer * {
+  width: 100%;
+  margin-top: 30px;
+}

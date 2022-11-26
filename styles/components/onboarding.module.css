@@ -1,0 +1,45 @@
+.innerDiv {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: 20px;
+}
+
+.image {
+  margin-bottom: 20px;
+  height: auto;
+}
+
+.intro {
+  font-weight: 900;
+  font-size: 1.4rem;
+}
+
+.buttonsContainer {
+  /* padding-top: 20px; */
+  padding-bottom: 40px;
+  width: 100%;
+}
+
+.buttonsContainer * {
+  width: 100%;
+  margin-top: 30px;
+}
+
+.continue {
+  background-color: #3b60e4;
+  color: #fff;
+  font-weight: bolder;
+}
+
+.skip {
+  font-weight: bolder;
+  color: #050557;
+}
+
+@media screen and (max-width: 800px) {
+  .image {
+    width: 80%;
+    height: auto;
+  }
+}
