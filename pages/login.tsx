@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -7,6 +8,7 @@ import styles2 from '../styles/Login.module.css';
 import PasswordRequirements from '../components/modals/PasswordRequirements';
 
 const Login: React.FC = () => {
+  const router = useRouter();
   const [showPwd, setShowPwd] = useState<boolean>(false);
   const [showPwdModal, setShowPwdModal] = useState(false);
   const [inputs, setInputs] = useState({
@@ -14,28 +16,13 @@ const Login: React.FC = () => {
     password: '',
   });
   const [emailPwdValidity, setEmailPwdValidity] = useState({
-    email: '',
-    password: '',
+    email: false,
+    password: false,
   });
-  console.log('Show', emailPwdValidity)
+
   const emailIsValid = (email: string) =>
     !email.match(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/);
 
-  const validateEmailPassword = () => {
-    console.log('Validating...')
-    if (!inputs.email.match(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/)) {
-      return setEmailPwdValidity((prev) => ({
-        ...prev,
-        email: 'invalid',
-      }))
-    }
-    if (!inputs.password) {
-      return setEmailPwdValidity((prev) => ({
-        ...prev,
-        password: 'invalid',
-      }))
-    }
-  };
   return (
     <main className="container2  blue-gradient white">
       <Head>
@@ -61,7 +48,6 @@ const Login: React.FC = () => {
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            // validateEmailPassword();
           }}
           className={styles.form}
           action=""
@@ -72,8 +58,8 @@ const Login: React.FC = () => {
               onChange={(e) => {
                 setEmailPwdValidity((prev) => ({
                   ...prev,
-                  email: '',
-                }))
+                  email: !emailIsValid(e.target.value),
+                }));
                 setInputs((prev) => ({
                   ...prev,
                   email: e.target.value,
@@ -106,8 +92,8 @@ const Login: React.FC = () => {
                 onChange={(e) => {
                   setEmailPwdValidity((prev) => ({
                     ...prev,
-                    password: 'invalid',
-                  }))
+                    password: !!e.target.value,
+                  }));
                   setInputs((prev) => ({
                     ...prev,
                     password: e.target.value,
@@ -133,12 +119,19 @@ const Login: React.FC = () => {
             </div>
           </label>
           <input
+            onClick={() => {
+              if (emailPwdValidity.email && emailPwdValidity.password) {
+                router.push('/onboarding1');
+              }
+            }}
             type="submit"
             value="LOG IN"
             className={`button main-blue ${styles.with} ${styles2.loginButton}`}
           />
         </form>
-        <Link className="link" href="/forgotPassword"><p className={styles2.forgot}>FORGOT PASSWORD?</p></Link>
+        <Link className="link" href="/forgotPassword">
+          <p className={styles2.forgot}>FORGOT PASSWORD?</p>
+        </Link>
         <Link href="/signupMain">
           {' '}
           <button className={`button main-blue transparent`}>SIGN UP</button>

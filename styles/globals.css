@@ -24,7 +24,7 @@ a {
 }
 
 .blue-gradient {
-  background-image: linear-gradient(#060556, #435fdc);
+  background-image: linear-gradient(#050557, #3b60e4);
 }
 
 .modal {
@@ -41,11 +41,11 @@ a {
 }
 
 .second-blue {
-  background: #2255f0;
+  background: #3b60e4;
 }
 
 .second-blue-text {
-  color: #2255f0;
+  color: #3b60e4;
   font-weight: bolder;
 }
 
@@ -83,7 +83,7 @@ a {
 }
 
 .main-blue-shadow {
-  box-shadow: 0px 3px 4px #060556;
+  box-shadow: 0px 3px 4px#050557;
 }
 
 .input {
@@ -100,7 +100,7 @@ a {
 }
 
 .main-blue {
-  color: #060556;
+  color: #050557;
 }
 
 .heading {

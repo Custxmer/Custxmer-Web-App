@@ -37,7 +37,10 @@ const ResetPassword: React.FC = () => {
       </Head>
       <div className={styles.innerDiv}>
         <h1 className={`heading white ${styles2.heading}`}>Password Reset</h1>
-        <div className={`${styles.animation} ${styles2.animation}`} ref={animationContainer}></div>
+        <div
+          className={`${styles.animation} ${styles2.animation}`}
+          ref={animationContainer}
+        ></div>
         {showPwdModal && (
           <PasswordRequirements setShowPwdModal={setShowPwdModal} />
         )}
